@@ -1,5 +1,3 @@
-using System;
-
 namespace BorrowLend.Models
 {
     public class ErrorViewModel
