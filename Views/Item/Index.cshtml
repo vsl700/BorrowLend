@@ -14,6 +14,9 @@
                 Borrowed items list
             </h2>
         </div>
+        <div class="col-6 text-right">
+            <a class="btn btn-primary w-75" asp-controller="Item" asp-action="Create">Create new item</a>
+        </div>
     </div>
     <br />
     @if (Model.Count() > 0)
@@ -29,10 +32,14 @@
                 @foreach (Item item in Model)
                 {
                 <tr>
-                    <td width="30%">@item.ItemName</td>
-                    <td width="30%">@item.Borrower</td>
-                    <td width="30%">@item.Lender</td>
-                    <td width="30%">:)</td>
+                    <td width="20%">@item.ItemName</td>
+                    <td width="20%">@item.Borrower</td>
+                    <td width="20%">@item.Lender</td>
+                    <td width="20%">:)</td>
+                    <td width="20%">
+                        <a class="btn btn-success m-1" asp-controller="Item" asp-action="Update" asp-route-id="@item.ID">Update</a>
+                        <a class="btn btn-danger m-1" asp-controller="Item" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
                 </tr>
                 }
             </tbody>
