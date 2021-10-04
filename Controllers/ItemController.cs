@@ -33,9 +33,14 @@ namespace BorrowLend.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Item item)
         {
-            _db.Items.Add(item);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _db.Items.Add(item);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(item);
         }
 
         //Update Get
