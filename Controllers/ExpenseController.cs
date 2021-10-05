@@ -1,43 +1,44 @@
 ﻿using BorrowLend.Data;
 using BorrowLend.Models;
-using BorrowLend.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace BorrowLend.Controllers
 {
-    public class ItemController : Controller
+    public class ExpenseController : Controller
     {
         private readonly ApplicationDbContext _db;
 
 
-        public ItemController(ApplicationDbContext db)
+        public ExpenseController(ApplicationDbContext db)
         {
             _db = db;
         }
 
-        
         public IActionResult Index()
         {
-            IEnumerable<Item> obj = _db.Items;
+            IEnumerable<Expense> obj = _db.Expenses;
             return View(obj);
         }
 
         // Create Get
         public IActionResult Create()
         {
-            ItemVM itemVM = new ItemVM();
-            return View(itemVM);
+            //ExpenseVM itemVM = new ExpenseVM();
+            return View(/*itemVM*/);
         }
 
         //Create Post
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Item item)
+        public IActionResult Create(Expense item)
         {
             if (ModelState.IsValid)
             {
-                _db.Items.Add(item);
+                _db.Expenses.Add(item);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -48,9 +49,9 @@ namespace BorrowLend.Controllers
         //Update Get
         public IActionResult Update(int? id)
         {
-            var obj = _db.Items.Find(id);
+            var obj = _db.Expenses.Find(id);
 
-            if(obj == null)
+            if (obj == null)
             {
                 return NotFound();
             }
@@ -61,14 +62,14 @@ namespace BorrowLend.Controllers
         //Update Post
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Update(Item obj)
+        public IActionResult Update(Expense obj)
         {
-            if(obj == null)
+            if (obj == null)
             {
                 return NotFound();
             }
 
-            _db.Items.Update(obj);
+            _db.Expenses.Update(obj);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -76,14 +77,14 @@ namespace BorrowLend.Controllers
         //Delete Get
         public IActionResult Delete(int? id)
         {
-            var obj = _db.Items.Find(id);
+            var obj = _db.Expenses.Find(id);
 
             if (obj == null)
             {
                 return NotFound();
             }
 
-            _db.Items.Remove(obj);
+            _db.Expenses.Remove(obj);
             _db.SaveChanges();
 
             return /*View(obj)*/ RedirectToAction("Index");
@@ -92,14 +93,14 @@ namespace BorrowLend.Controllers
         //Delete Post
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(Item obj)
+        public IActionResult Delete(Expense obj)
         {
             if (obj == null)
             {
                 return NotFound();
             }
 
-            _db.Items.Remove(obj);
+            _db.Expenses.Remove(obj);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
