@@ -5,18 +5,16 @@
     ViewData["Title"] = "Create";
 }
 
-@model BorrowLend.Models.Expense
+@model BorrowLend.Models.ExpenseType
 <h1>Update</h1>
 <form method="post" asp-action="Update">
     <div class="row">
         <div class="col-12">
             <div class="form-group row">
-                <label class="col-3 m-1 form-control" asp-for="ExpenseName"></label>
-                <label class="col-3 m-1 form-control" asp-for="Amount"></label>
+                <label class="col-3 m-1 form-control" asp-for="ExpenseTypeName"></label>
             </div>
             <div class="form-group row">
-                <input class="col-3 m-1 form-control" asp-for="ExpenseName" />
-                <input class="col-3 m-1 form-control" asp-for="Amount" />
+                <input class="col-3 m-1 form-control" asp-for="ExpenseTypeName" />
             </div>
             <div class="form-group row">
                 @*<div class="col-3 form-control m-1"></div>*@

@@ -9,6 +9,8 @@ namespace BorrowLend.Data
 
         public DbSet<Expense> Expenses { get; set; }
 
+        public DbSet<ExpenseType> ExpenseTypes { get; set; }
+
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
