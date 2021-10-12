@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace BorrowLend.Controllers
 {
-    public class ExpenseTypeTypeController : Controller
+    public class ExpenseTyController : Controller
     {
         private readonly ApplicationDbContext _db;
 
 
-        public ExpenseTypeTypeController(ApplicationDbContext db)
+        public ExpenseTyController(ApplicationDbContext db)
         {
             _db = db;
         }
