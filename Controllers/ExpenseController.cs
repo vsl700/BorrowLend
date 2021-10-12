@@ -1,6 +1,8 @@
 ﻿using BorrowLend.Data;
 using BorrowLend.Models;
+using BorrowLend.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,29 +23,37 @@ namespace BorrowLend.Controllers
         public IActionResult Index()
         {
             IEnumerable<Expense> obj = _db.Expenses;
+
             return View(obj);
         }
 
         // Create Get
         public IActionResult Create()
         {
-            //ExpenseVM itemVM = new ExpenseVM();
-            return View(/*itemVM*/);
+            ExpenseVM itemVM = new ExpenseVM {
+                Expense = new Expense(),
+                TypeDropDown = _db.ExpenseTypes.Select(i => new SelectListItem {
+                    Text = i.ExpenseTypeName,
+                    Value = i.ID.ToString()
+                })
+            };
+
+            return View(itemVM);
         }
 
         //Create Post
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Expense item)
+        public IActionResult Create(ExpenseVM itemVM)
         {
             if (ModelState.IsValid)
             {
-                _db.Expenses.Add(item);
+                _db.Expenses.Add(itemVM.Expense);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(item);
+            return View(itemVM);
         }
 
         //Update Get

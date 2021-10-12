@@ -20,9 +20,8 @@ namespace BorrowLend.Models
         [Range(1, double.MaxValue, ErrorMessage = "The amount must be a positive number")]
         public double Amount { get; set; }
 
+        [ForeignKey("ExpenseType")]
         public int ExpenseTypeId { get; set; }
-
-        [ForeignKey("ExpenseTypeId")]
         public virtual ExpenseType ExpenseType { get; set; }
     }
 }
