@@ -23,20 +23,25 @@
     {
         <table class="table table-bordered table-striped" style="width:100%">
             <thead>
-            <th> Item name </th>
-            <th> Borrower </th>
-            <th> Lender </th>
-            <th> :))) </th>
+                <tr>
+                    <th> Item name </th>
+                    <th> Borrower </th>
+                    <th> Email </th>
+                    <th> Lender </th>
+                    <th> Changes </th>
+                    <th> :))) </th>
+                </tr>
             </thead>
             <tbody>
                 @foreach (Item item in Model)
                 {
                 <tr>
-                    <td width="20%">@item.ItemName</td>
-                    <td width="20%">@item.Borrower</td>
-                    <td width="20%">@item.Lender</td>
-                    <td width="20%">:)</td>
-                    <td width="20%">
+                    <td width="17%">@item.ItemName</td>
+                    <td width="17%">@item.Borrower</td>
+                    <td width="17%"> </td>
+                    <td width="17%">@item.Lender</td>
+                    <td width="17%">:)</td>
+                    <td width="17%">
                         <a class="btn btn-success m-1" asp-controller="Item" asp-action="Update" asp-route-id="@item.ID">Update</a>
                         <a class="btn btn-danger m-1" asp-controller="Item" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
                     </td>
