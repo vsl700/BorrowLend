@@ -36,7 +36,7 @@
                 <tr>
                     <td width="25%">@expense.ExpenseName</td>
                     <td width="25%">@expense.Amount</td>
-                    <td width="25%">@expense.ExpenseType</td>
+                    <td width="25%">@expense.ExpenseType.ExpenseTypeName</td>
                     <td width="25%">
                         <a class="btn btn-success m-1" asp-controller="Expense" asp-action="Update" asp-route-id="@expense.ID">Update</a>
                         <a class="btn btn-danger m-1" asp-controller="Expense" asp-action="Delete" asp-route-id="@expense.ID">Delete</a>

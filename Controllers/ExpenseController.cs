@@ -23,6 +23,10 @@ namespace BorrowLend.Controllers
         public IActionResult Index()
         {
             IEnumerable<Expense> obj = _db.Expenses;
+            foreach(Expense e in obj)
+            {
+                e.ExpenseType = _db.ExpenseTypes.Find(e.ExpenseTypeId);
+            }
 
             return View(obj);
         }

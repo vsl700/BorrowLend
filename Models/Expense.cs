@@ -22,6 +22,7 @@ namespace BorrowLend.Models
 
         [ForeignKey("ExpenseType")]
         public int ExpenseTypeId { get; set; }
+
         public virtual ExpenseType ExpenseType { get; set; }
     }
 }
