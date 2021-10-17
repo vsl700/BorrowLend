@@ -48,16 +48,16 @@ namespace BorrowLend.Controllers
         //Create Post
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(ExpenseVM itemVM)
+        public IActionResult Create(ExpenseVM expenseVM)
         {
             if (ModelState.IsValid)
             {
-                _db.Expenses.Add(itemVM.Expense);
+                _db.Expenses.Add(expenseVM.Expense);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(itemVM);
+            return View(expenseVM);
         }
 
         //Update Get

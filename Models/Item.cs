@@ -15,8 +15,8 @@ namespace BorrowLend.Models
         public string Borrower { get; set; }
 
         [Required]
-        [EmailAddress(ErrorMessage = "Invalid email address :)")]
-        //[RegularExpression("^[a-zA-Z0-9_.]+@([a-zA-Z0-9-]+.)+[a-zA-Z]{2,6}$", ErrorMessage = "Invalid email address :))")]
+        //[EmailAddress(ErrorMessage = "Invalid email address :)")]
+        [RegularExpression("^[a-zA-Z0-9_.]+@([a-zA-Z]+.)+[a-zA-Z]{2,6}$", ErrorMessage = "Invalid email address :))")]
         public string Email { get; set; }
 
         [Required]

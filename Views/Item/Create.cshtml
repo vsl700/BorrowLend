@@ -8,35 +8,25 @@
 @model BorrowLend.Models.ViewModels.ItemVM
 <h1>Create</h1>
 <form method="post" asp-action="Create">
-    <div class="row">
-        <div class="col-12">
-            <div class="form-group row">
-                <label class="col-2 m-1 form-control" asp-for="Item.ItemName"></label>
-                <label class="col-2 m-1 form-control" asp-for="Item.Borrower"></label>
-                <label class="col-2 m-1 form-control" asp-for="Item.Email"></label>
-                <label class="col-2 m-1 form-control" asp-for="Item.Lender"></label>
-            </div>
-            <div class="form-group row">
-                <input class="col-2 m-1 form-control" asp-for="Item.ItemName" />
-                <input class="col-2 m-1 form-control" asp-for="Item.Borrower" />
-                <input class="col-2 m-1 form-control" asp-for="Item.Email" />
-                <input class="col-2 m-1 form-control" asp-for="Item.Lender" />
-            </div>
-            @*<div>
-            <span asp-validation-for="ItemName" class="text-danger"></span>
-            <br />
-            <span asp-validation-for="Borrower" class="text-danger"></span>
-            <br />
-            <span asp-validation-for="Lender" class="text-danger"></span>
-            <br />
-        </div>*@
-            <div class="form-group row">
-                @*<div class="col-3 form-control m-1"></div>*@
-
-                <button type="submit" class="col-4 btn btn-success m-1">Save</button>
-                <button asp-action="Index" class="col-4 btn btn-danger m-1">Back</button>
-            </div>
-            <div asp-validation-summary="All" class="text-danger"></div>
-        </div>
-    </div>
+    <table>
+        <thead>
+            <tr>
+                <th width="25%">Item Name</th>
+                <th width="25%">Borrower</th>
+                <th width="25%">Email</th>
+                <th width="25%">Lender</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th width="25%"><input asp-for="Item.ItemName" /></th>
+                <th width="25%"><input asp-for="Item.Borrower" /></th>
+                <th width="25%"><input asp-for="Item.Email" /></th>
+                <th width="25%"><input asp-for="Item.Lender" /></th>
+            </tr>
+        </tbody>
+    </table>
+    <button type="submit" class="col-3 btn btn-success m-1">Save</button>
+    <button asp-action="Index" class="col-3 btn btn-danger m-1">Back</button>
+    <div asp-validation-summary="All" class="text-danger"></div>
 </form>
