@@ -2,28 +2,27 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Update";
 }
 
 @model BorrowLend.Models.Expense
 <h1>Update</h1>
 <form method="post" asp-action="Update">
-    <div class="row">
-        <div class="col-12">
-            <div class="form-group row">
-                <label class="col-3 m-1 form-control" asp-for="ExpenseName"></label>
-                <label class="col-3 m-1 form-control" asp-for="Amount"></label>
-            </div>
-            <div class="form-group row">
-                <input class="col-3 m-1 form-control" asp-for="ExpenseName" />
-                <input class="col-3 m-1 form-control" asp-for="Amount" />
-            </div>
-            <div class="form-group row">
-                @*<div class="col-3 form-control m-1"></div>*@
-
-                <button type="submit" class="col-3 btn btn-success m-1">Save</button>
-                <button asp-action="Index" class="col-3 btn btn-danger m-1">Back</button>
-            </div>
-        </div>
-    </div>
+    <table>
+        <thead>
+            <tr>
+                <th width="50%">Expense Name</th>
+                <th width="50%">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th width="50%"><input asp-for="ExpenseName" /></th>
+                <th width="50%"><input asp-for="Amount" /></th>
+            </tr>
+        </tbody>
+    </table>
+    <button type="submit" class="col-3 btn btn-success m-1">Save</button>
+    <button asp-action="Index" class="col-3 btn btn-danger m-1">Back</button>
+    <div asp-validation-summary="All" class="text-danger"></div>
 </form>
