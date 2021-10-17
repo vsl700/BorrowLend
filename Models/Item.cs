@@ -20,6 +20,10 @@ namespace BorrowLend.Models
         public string Email { get; set; }
 
         [Required]
+        [RegularExpression("[0-9]{9}", ErrorMessage = "Invalid phone 📱! Requires only 9 digits! First digit is not required!")]
+        public string PhoneNumber { get; set; }
+
+        [Required]
         public string Lender { get; set; }
     }
 }

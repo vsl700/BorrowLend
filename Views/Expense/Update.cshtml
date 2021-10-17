@@ -2,21 +2,25 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Update";
 }
 
-@model BorrowLend.Models.Expense
+@model BorrowLend.Models.ViewModels.ExpenseVM
 <h1>Update</h1>
 <form method="post" asp-action="Update">
     <div class="row">
         <div class="col-12">
             <div class="form-group row">
-                <label class="col-3 m-1 form-control" asp-for="ExpenseName"></label>
-                <label class="col-3 m-1 form-control" asp-for="Amount"></label>
+                <label class="col-3 m-1 form-control" asp-for="Expense.ExpenseName"></label>
+                <label class="col-3 m-1 form-control" asp-for="Expense.Amount"></label>
+                <label class="col-3 m-1 form-control" asp-for="Expense.ExpenseType"></label>
             </div>
             <div class="form-group row">
-                <input class="col-3 m-1 form-control" asp-for="ExpenseName" />
-                <input class="col-3 m-1 form-control" asp-for="Amount" />
+                <input class="col-3 m-1 form-control" asp-for="Expense.ExpenseName" />
+                <input class="col-3 m-1 form-control" asp-for="Expense.Amount" />
+                <select asp-for="Expense.ExpenseTypeId" asp-items="@Model.TypeDropDown" class="col-3 m-1 form-control">
+                    <option select>--Select Expense Type--</option>
+                </select>
             </div>
             <div class="form-group row">
                 @*<div class="col-3 form-control m-1"></div>*@
@@ -26,4 +30,5 @@
             </div>
         </div>
     </div>
+    <div asp-validation-summary="All" class="text-danger"></div>
 </form>
