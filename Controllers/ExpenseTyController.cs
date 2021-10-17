@@ -69,9 +69,14 @@ namespace BorrowLend.Controllers
                 return NotFound();
             }
 
-            _db.ExpenseTypes.Update(obj);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _db.ExpenseTypes.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(obj);
         }
 
         //Delete Get
