@@ -70,13 +70,23 @@ namespace BorrowLend.Controllers
                 return NotFound();
             }
 
-            return View(obj);
+
+            ExpenseVM expenseVM = new ExpenseVM
+            {
+                Expense = obj,
+                TypeDropDown = _db.ExpenseTypes.Select(i => new SelectListItem
+                {
+                    Text = i.ExpenseTypeName,
+                    Value = i.ID.ToString()
+                })
+            };
+            return View(expenseVM);
         }
 
         //Update Post
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Update(Expense obj)
+        public IActionResult Update(ExpenseVM obj)
         {
             if (obj == null)
             {
@@ -85,7 +95,7 @@ namespace BorrowLend.Controllers
 
             if (ModelState.IsValid)
             {
-                _db.Expenses.Update(obj);
+                _db.Expenses.Update(obj.Expense);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }

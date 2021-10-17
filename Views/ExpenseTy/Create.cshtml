@@ -8,29 +8,19 @@
 @model BorrowLend.Models.ExpenseType
 <h1>Create</h1>
 <form method="post" asp-action="Create">
-    <div class="row">
-        <div class="col-12">
-            <div class="form-group row">
-                <label class="col-3 m-1 form-control" asp-for="ExpenseTypeName"></label>
-            </div>
-            <div class="form-group row">
-                <input class="col-3 m-1 form-control" asp-for="ExpenseTypeName" />
-            </div>
-            @*<div>
-                    <span asp-validation-for="ItemName" class="text-danger"></span>
-                    <br />
-                    <span asp-validation-for="Borrower" class="text-danger"></span>
-                    <br />
-                    <span asp-validation-for="Lender" class="text-danger"></span>
-                    <br />
-                </div>*@
-            <div class="form-group row">
-                @*<div class="col-3 form-control m-1"></div>*@
-
-                <button type="submit" class="col-3 btn btn-success m-1">Save</button>
-                <button asp-action="Index" class="col-3 btn btn-danger m-1">Back</button>
-            </div>
-            <div asp-validation-summary="All" class="text-danger"></div>
-        </div>
-    </div>
+    <table>
+        <thead>
+            <tr>
+                <th width="100%">Expense Type Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th width="100%"><input asp-for="ExpenseTypeName" /></th>
+            </tr>
+        </tbody>
+    </table>
+    <button type="submit" class="col-3 btn btn-success m-1">Save</button>
+    <button asp-action="Index" class="col-3 btn btn-danger m-1">Back</button>
+    <div asp-validation-summary="All" class="text-danger"></div>
 </form>
